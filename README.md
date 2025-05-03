@@ -51,14 +51,3 @@ Enjarify does not currently translate optional metadata such as sourcefile attri
 
 Enjarify tries hard to successfully translate as many classes as possible, but there are some potential cases where it is simply not possible due to limitations in Android, Java, or both. Luckily, this only happens in contrived circumstances, so it shouldn't be a problem in practice.
 
-
-### Performance tips
-
-PyPy is much faster than CPython. To install PyPy, see http://pypy.org/. Make sure you get PyPy3 rather than regular PyPy. The Linux wrapper script will automatically use the command pypy3 if available. On Windows, you'll need to edit the wrapper script yourself.
-
-By default, Enjarify runs optimizations on the bytecode which make it more readable for humans (copy propagation, unused value removal, etc.). If you don't need this, you can speed things up by disabling the optimizations with the --fast option. Note that in the very rare case where a class is too big to fit in a classfile without optimization, Enjarify will automatically retry it with all optimizations enabled, so this option does not affect the number of classes that are successfully translated.
-
-
-### Disclaimer
-
-This is not an official Google product (experimental or otherwise), it is just code that happens to be owned by Google.
